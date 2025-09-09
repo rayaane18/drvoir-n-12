@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>calculatrice</title>
+</head>
+<body>
+    <section class="section1">
+
+    <div class="calcul">
+        <div class="resulta" id="resulta"></div>
+        <div id="parti1">
+            <button class="clear" onclick="clear()" style="background-color:#C7F3FF;">C</button>
+            <button class="operator" onclick="appendPercentage()">%</button>
+            <button class="operator" onclick="appendValue('/')">÷</button>
+            <button class="operator" onclick="appendValue('*')">×</button>
+      </div> 
+      <div id="parti2">
+        <div id="num">
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button class="zero" onclick="appendValue('0')" style="grid-column: span 2; width:160px;">0</button>
+            <button onclick="appendValue('.')">.</button>
+        </div>
+          <div id="cond">
+            <button class="operator" onclick="appendValue('-')">−</button>
+             <button class="operator" onclick="appendValue('+')">+</button>
+              <button class="equal" onclick="calcul()" style=" grid-row: span 2; height: 130px; background-color: #C7F3FF;">=</button>
+          </div>
+        </div>
+    </div>
+
+    <script>
+        let resulta = document.getElementById('resulta');
+
+        function appendValue(value) {
+            resulta.textContent += value;
+        }
+
+        function clear() {
+            resulta.textContent = '';
+        }
+
+        function appendPercentage() {
+            if (resulta.textContent) {
+                resulta.textContent = (parseFloat(resulta.textContent) / 100).toString();
+            }
+        }
+
+        function calcul() {
+            try {
+                resulta.textContent = eval(resulta.textContent);
+            } catch {
+                resulta.textContent = 'Erreur';
+            }
+        }
+    </script>
+    </section>
+</body>
+</html>
