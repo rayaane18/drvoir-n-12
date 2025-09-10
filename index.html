@@ -11,7 +11,7 @@
     <div class="calcul">
         <div class="resulta" id="resulta"></div>
         <div id="parti1">
-            <button class="clear" onclick="clear()" style="background-color:#C7F3FF;">C</button>
+            <button class=" clearResult" onclick=" clearResult()" style="background-color:#C7F3FF;">C</button>
             <button class="operator" onclick="appendPercentage()">%</button>
             <button class="operator" onclick="appendValue('/')">÷</button>
             <button class="operator" onclick="appendValue('*')">×</button>
@@ -45,8 +45,8 @@
             resulta.textContent += value;
         }
 
-        function clear() {
-            resulta.textContent = '';
+        function clearResult() {
+          resulta.textContent = '';
         }
 
         function appendPercentage() {
